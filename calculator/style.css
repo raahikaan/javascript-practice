@@ -1,13 +1,14 @@
 #calculator {
-    border: 2px solid rgb(196, 195, 195);
+    border: 2px solid rgb(224, 221, 221);
+    width: 200px;
     border-radius: 5px;
-    width: 200px
 }
 
-#dispaly {
+#display {
     margin: 10px;
     width: 85%;
-    font-size: 25px;
+    font-size: 20px;
+
 }
 
 .button-container {
