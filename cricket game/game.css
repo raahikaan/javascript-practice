@@ -1,7 +1,48 @@
+/* Set the height and remove default margins/paddings for html and body */
+html,
 body {
-    text-align: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
+/* Style for the body, including background and font settings */
+body {
+    text-align: center;
+    background-image: url('https://image.slidesdocs.com/responsive-images/background/experience-the-panoramic-view-of-a-cricket-stadiums-ground-and-outfield-in-3d-perspective-powerpoint-background_90534356cc__960_540.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+/* Header (h1) style */
+h1 {
+    font-size: 3em;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    font-family: 'Lucida Console', Courier, monospace;
+}
+
+/* Styles for user-move, computer-move, result, and score elements */
+#user-move,
+#computer-move,
+#result,
+#score {
+    font-size: 1.5em;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    font-family: 'Lucida Console', Courier, monospace;
+}
+
+/* Style for the score element */
+#score {
+    margin-top: 20px;
+}
+
+/* Button styles */
 .choice-button {
     height: 100px;
     width: 100px;
@@ -10,8 +51,15 @@ body {
     background-color: rgb(164, 212, 130);
     border-radius: 50px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
+/* Hover effect for buttons */
+.choice-button:hover {
+    transform: scale(1.1);
+}
+
+/* Image inside buttons */
 .choice-image {
     height: 75px;
 }
