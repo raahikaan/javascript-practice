@@ -1,0 +1,225 @@
+/* Import Google Fonts for modern typography */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+/* Define CSS variables for theme colors */
+:root {
+    --primary-color: #1f4037;
+    --secondary-color: #99f2c8;
+    --accent-color: #ff6f61;
+    --background-color: #f4f4f4;
+    --white: #fff;
+    --black: #333;
+    --button-hover: #ff8566;
+    --input-focus: #88d8b0;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --shadow-light: rgba(255, 255, 255, 0.5);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+}
+
+/* Overall body style with a gradient background and center alignment */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--black);
+    overflow: hidden;
+}
+
+/* Main heading with stylish font, animated gradient, shadow, and layered text */
+#main-heading {
+    position: relative;
+    text-align: center;
+    font-size: 4em;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out, glow 1.5s infinite alternate ease-in-out;
+}
+
+#main-heading::before,
+#main-heading::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 4em;
+    font-weight: 700;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--accent-color), var(--button-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientRotate 3s infinite linear;
+    z-index: -1;
+}
+
+#main-heading::after {
+    filter: blur(5px);
+}
+
+@keyframes gradientRotate {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    to {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Container style with glassmorphism effect, shadow, and rounded corners */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 20px;
+    gap: 20px;
+    padding: 30px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-dark);
+    backdrop-filter: blur(15px);
+    animation: slideUp 1s ease-in-out;
+}
+
+/* Input fields with consistent styling, focus effects, and neumorphism */
+#todo-input,
+#todo-date {
+    font-size: 1.2em;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    background: var(--glass-bg);
+    box-shadow: 8px 8px 15px var(--shadow-dark), -8px -8px 15px var(--shadow-light);
+}
+
+#todo-input:focus,
+#todo-date:focus {
+    border-color: var(--input-focus);
+    box-shadow: 0 0 10px var(--input-focus);
+    transform: scale(1.05);
+}
+
+/* Button styles with modern look, gradients, and hover effects */
+.btn-add,
+.btn-delete {
+    font-size: 1.2em;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    background: linear-gradient(135deg, var(--accent-color), var(--button-hover));
+    box-shadow: 8px 8px 15px var(--shadow-dark), -8px -8px 15px var(--shadow-light);
+    color: var(--white);
+    font-weight: 700;
+}
+
+.btn-add:hover {
+    background: linear-gradient(135deg, var(--button-hover), var(--accent-color));
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Todo items styled as cards with neumorphism, shadow, and animations */
+.todo-container {
+    margin-top: 20px;
+}
+
+.todo-item {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background: var(--glass-bg);
+    border-radius: 15px;
+    box-shadow: 8px 8px 15px var(--shadow-dark), -8px -8px 15px var(--shadow-light);
+    animation: fadeInUp 0.5s ease-in-out;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.todo-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
