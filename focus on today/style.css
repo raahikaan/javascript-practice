@@ -60,10 +60,12 @@ main {
   display: flex;
   align-items: center;
   overflow: hidden;
+  transition: width 0.3s ease-in-out;
 }
 
 .progress-value span {
   padding-left: 20px;
+  min-width: max-content;
 
 }
 
